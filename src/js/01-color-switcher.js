@@ -6,6 +6,8 @@ const refs = {
     body: document.body
 };
 
+refs.stopBtn.disabled = true;
+
 refs.startBtn.addEventListener('click', onStartBtnClick);
 refs.stopBtn.addEventListener('click', onStopBtnClick);
 
@@ -14,6 +16,7 @@ function onStartBtnClick() {
         refs.body.style.backgroundColor = getRandomHexColor()
     }, INTERVAL_TIME);
     this.disabled = true;
+    refs.stopBtn.disabled = false;
 }
 
 function getRandomHexColor() {
@@ -22,5 +25,6 @@ function getRandomHexColor() {
 
 function onStopBtnClick() {
     clearInterval(intervalID);
+    this.disabled = true
     refs.startBtn.disabled = false;
 }
