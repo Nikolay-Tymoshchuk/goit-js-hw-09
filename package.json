@@ -1,21 +1,21 @@
 {
-  "name": "goit-js-hw-08",
+  "name": "goit-js-hw-09",
   "version": "1.0.0",
-  "description": "home-work-number-8",
+  "description": "home-work-number-9",
   "main": "index.js",
-  "homepage": "https://nikolay-tymoshchuk.github.io/goit-js-hw-08/",
+  "homepage": "https://nikolay-tymoshchuk.github.io/goit-js-hw-09/",
   "scripts": {
     "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /goit-js-hw-08/"
+    "build": "parcel build src/*.html --public-url /goit-js-hw-09/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Nikolay-Tymoshchuk/goit-js-hw-08.git"
+    "url": "git+https://github.com/Nikolay-Tymoshchuk/goit-js-hw-09.git"
   },
   "author": "Nikolay Tymoshchuk <saintnikfreak@gmal.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Nikolay-Tymoshchuk/goit-js-hw-08/issues"
+    "url": "https://github.com/Nikolay-Tymoshchuk/goit-js-hw-09/issues"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.5",
@@ -23,10 +23,5 @@
     "parcel-plugin-nuke-dist": "^1.0.1",
     "posthtml-include": "^1.7.3",
     "sass": "^1.50.0"
-  },
-  "dependencies": {
-    "@vimeo/player": "^2.16.4",
-    "lodash.throttle": "^4.1.1",
-    "simplelightbox": "^2.10.3"
   }
 }
