@@ -25,6 +25,8 @@
     "sass": "^1.50.0"
   },
   "dependencies": {
-    "flatpickr": "^4.6.13"
+    "flatpickr": "^4.6.13",
+    "js-confetti": "^0.10.2",
+    "notiflix": "^3.2.5"
   }
 }

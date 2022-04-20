@@ -29,6 +29,9 @@ img {
   font-family: Akshar, sans-serif;
   margin-right: 1rem;
 }
+.timer .field:last-child {
+  margin-right: 0;
+}
 .value {
   color: #212121bf;
   font-size: 1.8rem;
