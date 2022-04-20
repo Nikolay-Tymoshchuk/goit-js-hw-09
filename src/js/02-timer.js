@@ -2,7 +2,7 @@ import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 require("flatpickr/dist/themes/material_red.css");
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import JSConfetti from 'js-confetti'
+import JSConfetti from 'js-confetti';
 
 const refs = {
   dateChosingField: document.body.querySelector('#datetime-picker'),
