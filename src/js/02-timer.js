@@ -73,18 +73,18 @@ function convertMs(ms) {
 
 function countdownRound() {
   const now = new Date();
-    const date = new Date(refs.dateChosingField.value);
+  const date = new Date(refs.dateChosingField.value);
   const diff = date - now;
+
   if (diff <= 0) {
       clearInterval(refs.intervalID);
       addConfeti(4);
       return
-    }
-    const { days, hours, minutes, seconds } = convertMs(diff);
-    refs.daysEl.textContent = pad(days);
-    refs.hoursEl.textContent = pad(hours);
-    refs.minutesEl.textContent = pad(minutes);
-    refs.secondsEl.textContent = pad(seconds); 
+  }
+  
+  const { days, hours, minutes, seconds } = convertMs(diff);
+  const { daysEl, hoursEl, minutesEl, secondsEl } = refs;
+  padContent([daysEl, hoursEl, minutesEl, secondsEl], [days, hours, minutes, seconds]);
 }
 
 function clearCountdown() {
@@ -96,10 +96,7 @@ function clearCountdown() {
     refs.buttonStart.disabled = false;
     refs.dateChosingField.disabled = false;
     buttonClear.remove();
-    refs.daysEl.textContent = '00';
-    refs.hoursEl.textContent = '00';
-    refs.minutesEl.textContent = '00';
-    refs.secondsEl.textContent = '00';
+    fillContent([refs.daysEl, refs.hoursEl, refs.minutesEl, refs.secondsEl], '00');
   });
 }
 
@@ -110,16 +107,28 @@ function pad (value) {
 function addConfeti(num) {
   let count = 0;
   const confetti = new JSConfetti(document.body);
+
   let intervalConfeti = setInterval(() => {
     count += 1;
+
     if (count === num) {
       clearInterval(intervalConfeti);
     }
+
     confetti.addConfetti({
       emojis: ['🌈', '⚡️', '💥', '✨', '💫', '🌸', '🦄', '🎉'],
       emojiSize: 20,
       confettiNumber: 50,
     });
+
   }, 1000);
+}
+
+function fillContent(arr, cont) {
+  return arr.forEach(el => el.textContent = cont)
+}
+
+function padContent(ref, val) {
+  return ref.forEach((el,i) => el.textContent = pad(val[i]));
 }
 
