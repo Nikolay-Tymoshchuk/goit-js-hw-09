@@ -10,18 +10,20 @@
     <p><a href="index.html">Go back</a></p>
 
     <form class="form">
-      <label>
-        First delay (ms)
-        <input type="number" name="delay" required />
-      </label>
-      <label>
-        Delay step (ms)
-        <input type="number" name="step" required />
-      </label>
-      <label>
-        Amount
-        <input type="number" name="amount" required />
-      </label>
+      <div class="form__box">
+        <label>
+          <input type="number" name="delay" required />
+          First delay (ms)
+        </label>
+        <label>
+          <input type="number" name="step" required />
+          Delay step (ms)
+        </label>
+        <label>
+          <input type="number" name="amount" required />
+          Amount
+        </label>
+      </div>
       <button type="submit">Create promises</button>
     </form>
 
