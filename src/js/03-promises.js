@@ -12,12 +12,12 @@ const refs = {
   submitBtn: document.querySelector('button[type="submit"]'),
 }
 
-
 refs.submitBtn.addEventListener('click', onSubmitClick);
 
 function onSubmitClick(e) {
   e.preventDefault();
 
+  const onButtonClickTime = new Date();
   const value = Number(refs.amount.value);
   const step = Number(refs.step.value);
   let delay = Number(refs.delay.value);  
@@ -26,6 +26,9 @@ function onSubmitClick(e) {
   let promiceNumber = 1;
 
   setTimeout(() => {
+    const firstTimeTriggerAlert = new Date();
+    console.log('First time trigger =>', firstTimeTriggerAlert - onButtonClickTime);
+
     let intervalID = setInterval(() => {
       if (countOfIntervalsRounds === value) {
         clearInterval(intervalID);
