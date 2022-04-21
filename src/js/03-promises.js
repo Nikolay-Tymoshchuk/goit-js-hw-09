@@ -8,6 +8,18 @@ const refs = {
   submitBtn: document.querySelector('button[type="submit"]'),
 }
 
+refs.submitBtn.disabled = true;
+
+refs.form.addEventListener('change', onFormFieldChange);
+
+function onFormFieldChange(e) {
+  e.preventDefault();
+  if (e.target === e.currentTarget) {
+    return
+  }
+  refs.submitBtn.disabled = !refs.amount.value || !refs.step.value || !refs.delay.value;
+}
+
 refs.submitBtn.addEventListener('click', onSubmitClick);
 
 function onSubmitClick(e) {
@@ -35,6 +47,7 @@ function onSubmitClick(e) {
       delayPlusStep = delay += step;
       countOfIntervalsRounds += 1;
     }, step)
+
   }, delay)
 }
 
