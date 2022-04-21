@@ -23,24 +23,29 @@ function onSubmitClick(e) {
   let delay = Number(refs.delay.value);  
   let count = 0;
   let promiceNumber = 1;
+  
+  setTimeout(() => {
+    let intervalID = setInterval(() => {
+    
 
-  let intervalID = setInterval(() => {
     if (count === value) {
       clearInterval(intervalID);
       return
     }
-    else {  
+    else {
       createPromise(promiceNumber, delay).then(({ position, delay }) => Notify.success(`Fulfilled promise ${position} in ${delay}ms`)).catch(({ position, delay }) => Notify.failure(`Rejected promise ${position} in ${delay}ms`));
       promiceNumber += 1;
       delay += step;
-      console.log('delay :>> ', delay);
     } count += 1;
-  }, step);
+  }, step)
+  }, delay)
 }
 
 function createPromise(position, delay) {
   return new Promise((resolve, reject) => {
     const shouldResolve = Math.random() > 0.3;
+
+    setTimeout
     if (shouldResolve) {
       resolve({position, delay});
     }
