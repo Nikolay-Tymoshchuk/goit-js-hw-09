@@ -21,36 +21,29 @@ function onSubmitClick(e) {
   const value = Number(refs.amount.value);
   const step = Number(refs.step.value);
   let delay = Number(refs.delay.value);  
-  let count = 0;
+  let countOfIntervalsRounds = 0;
+  let delayPlusStep = delay;
   let promiceNumber = 1;
 
   setTimeout(() => {
     let intervalID = setInterval(() => {
-      if (count === value) {
+      if (countOfIntervalsRounds === value) {
         clearInterval(intervalID);
         return
       }
 
       else {
-        createPromise(promiceNumber, delay).then(({ position, delay }) => Notify.success(`Fulfilled promise ${position} in ${delay}ms`)).catch(({ position, delay }) => Notify.failure(`Rejected promise ${position} in ${delay}ms`));
+        createPromise(promiceNumber, delayPlusStep).then(({ position, delay }) => Notify.success(`Fulfilled promise ${position} in ${delay}ms`)).catch(({ position, delay }) => Notify.failure(`Rejected promise ${position} in ${delay}ms`));
         promiceNumber += 1;
-        delay += step;
+        delayPlusStep = delay += step;
       }
-      count += 1;
+      countOfIntervalsRounds += 1;
     }, step)
   }, delay)
 }
 
-function createPromise(position, delay) {
-  return new Promise((resolve, reject) => {
-    const shouldResolve = Math.random() > 0.3;
+const createPromise = ((position, delay) => new Promise((resolve, reject) => {
+      const shouldResolve = Math.random() > 0.3;
+      shouldResolve ? resolve({ position, delay }) : reject({ position, delay })
+    }))
 
-    if (shouldResolve) {
-      resolve({position, delay});
-    }
-    else {
-      reject({position, delay});
-    };
-    }
-  );
-}
