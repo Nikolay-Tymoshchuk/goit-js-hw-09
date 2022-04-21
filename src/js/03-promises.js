@@ -47,8 +47,9 @@ function onSubmitClick(e) {
       delayPlusStep = delay += step;
       countOfIntervalsRounds += 1;
     }, step)
-
   }, delay)
+  refs.form.reset();
+  refs.submitBtn.disabled = true;
 }
 
 const createPromise = ((position, delay) => new Promise((resolve, reject) => {
