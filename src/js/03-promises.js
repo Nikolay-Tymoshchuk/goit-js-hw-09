@@ -31,12 +31,9 @@ function onSubmitClick(e) {
         clearInterval(intervalID);
         return
       }
-
-      else {
-        createPromise(promiceNumber, delayPlusStep).then(({ position, delay }) => Notify.success(`Fulfilled promise ${position} in ${delay}ms`)).catch(({ position, delay }) => Notify.failure(`Rejected promise ${position} in ${delay}ms`));
-        promiceNumber += 1;
-        delayPlusStep = delay += step;
-      }
+      createPromise(promiceNumber, delayPlusStep).then(({ position, delay }) => Notify.success(`Fulfilled promise ${position} in ${delay}ms`)).catch(({ position, delay }) => Notify.failure(`Rejected promise ${position} in ${delay}ms`));
+      promiceNumber += 1;
+      delayPlusStep = delay += step;
       countOfIntervalsRounds += 1;
     }, step)
   }, delay)
